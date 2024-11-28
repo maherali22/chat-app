@@ -84,3 +84,26 @@ export const logout = (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+/*export const logout = (req, res) => {
+  try {
+    // Check if the user is authenticated
+    if (!req.user) {
+      return res.status(401).json({ message: "No user to logout" });
+    }
+
+    // Clear the JWT cookie
+    res.cookie("jwt", "", { maxAge: 0 });
+
+    // If you're keeping a blacklist of invalid tokens, add the current token to it here
+    // await invalidateToken(req.user.token);
+
+    // Log the logout event
+    console.log(`User ${req.user.id} logged out`);
+
+    res.status(200).json({ message: "Logout successful" });
+  } catch (error) {
+    console.log("Error in logout controller", error.message);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};*/
